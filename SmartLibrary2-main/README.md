@@ -4,10 +4,10 @@ Bu proje, **Nesneye Dayalı Programlama-II** dersi final ödevidir. Kütüphane 
 
 ## 👤 Öğrenci Bilgileri
 
-* **Ad Soyad:** [ADINI SOYADINI BURAYA YAZ]
-* **Öğrenci No:** [NUMARANI BURAYA YAZ]
+* **Ad Soyad:** Berker Konuk
+* **Öğrenci No:** 20230108038 
 * **Ders Sorumlusu:** Emrah SARIÇİÇEK
-* **GitHub Repository:** [GITHUB LINKINI BURAYA YAPIŞTIR]
+
 
 ---
 
