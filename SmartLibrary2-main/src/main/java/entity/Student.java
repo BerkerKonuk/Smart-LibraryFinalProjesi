@@ -1,37 +1,25 @@
 package entity;
 
-import jakarta.persistence.*;
-import java.util.ArrayList;
+import javax.persistence.*;
 import java.util.List;
 
-/*
- * Sınıf: Student
- * Amaç: Veritabanındaki 'students' tablosunu temsil eder.
- */
 @Entity
 @Table(name = "students")
 public class Student {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
 
-    @Column(name = "name", nullable = false)
+    @Column(nullable = false)
     private String name;
 
-    @Column(name = "department")
+    @Column(nullable = false)
     private String department;
 
-    /*
-     * İlişki: Bir öğrencinin birden fazla ödünç (Loan) kaydı olabilir.
-     * mappedBy = "student": İlişkinin sahibi Loan sınıfındaki 'student' alanıdır diyoruz.
-     * CascadeType.ALL: Öğrenci silinirse, ona ait ödünç kayıtları da silinsin (veya güncellensin).
-     * FetchType.LAZY: Öğrenci çekildiğinde, ödünç listesini hemen çekme, ihtiyaç olunca çek (Performans için).
-     */
-    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Loan> loans = new ArrayList<>();
+    @OneToMany(mappedBy = "student", fetch = FetchType.LAZY)
+    private List<Loan> loans;
 
-    // --- Constructorlar ---
     public Student() {
     }
 
@@ -40,12 +28,11 @@ public class Student {
         this.department = department;
     }
 
-    // --- Getter ve Setter ---
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -75,6 +62,6 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Öğrenci [ID=" + id + ", İsim=" + name + ", Bölüm=" + department + "]";
+        return id + ". " + name + " (" + department + ")";
     }
 }
